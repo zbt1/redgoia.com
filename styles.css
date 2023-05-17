@@ -2482,3 +2482,7 @@ html {
       font-size: 20px;
     }
   }
+
+  :root {
+    color-scheme: light only;
+  }
