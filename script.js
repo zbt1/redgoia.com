@@ -1561,65 +1561,48 @@ __p+='`),
       "brand",
       (ms.exports = function (e) {
         var t = {},
-          r = document,
-          n = e("html"),
-          i = e("body"),
-          o = ".w-webflow-badge",
-          a = window.location,
-          u = /PhantomJS/i.test(navigator.userAgent),
-          l =
-            "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange",
-          f;
+            r = document,
+            n = e("html"),
+            i = e("body"),
+            o = ".w-webflow-badge",
+            a = window.location,
+            u = /PhantomJS/i.test(navigator.userAgent),
+            l = "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange",
+            f;
+    
         t.ready = function () {
-          var T = n.attr("data-wf-status"),
-            b = n.attr("data-wf-domain") || "";
-          /\.webflow\.io$/i.test(b) && a.hostname !== b && (T = !0),
-            T &&
-              !u &&
-              ((f = f || d()),
-              E(),
-              setTimeout(E, 500),
-              e(r).off(l, v).on(l, v));
+            var T = n.attr("data-wf-status"),
+                b = n.attr("data-wf-domain") || "";
+            /\.webflow\.io$/i.test(b) && a.hostname !== b && (T = !0),
+                T && !u && (f = f || d(), E(), setTimeout(E, 500), e(r).off(l, v).on(l, v));
         };
+    
         function v() {
-          var T =
-            r.fullScreen ||
-            r.mozFullScreen ||
-            r.webkitIsFullScreen ||
-            r.msFullscreenElement ||
-            !!r.webkitFullscreenElement;
-          e(f).attr("style", T ? "display: none !important;" : "");
+            var T =
+                r.fullScreen ||
+                r.mozFullScreen ||
+                r.webkitIsFullScreen ||
+                r.msFullscreenElement ||
+                !!r.webkitFullscreenElement;
+            e(f).attr("style", T ? "display: none !important;" : "");
         }
+    
         function d() {
-          var T = e('<a class="w-webflow-badge"></a>').attr(
-              "href",
-              "https://webflow.com?utm_campaign=brandjs"
-            ),
-            b = e("<img>")
-              .attr(
-                "src",
-                "https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon.f67cd735e3.svg"
-              )
-              .attr("alt", "")
-              .css({ marginRight: "8px", width: "16px" }),
-            S = e("<img>")
-              .attr(
-                "src",
-                "https://d1otoma47x30pg.cloudfront.net/img/webflow-badge-text.6faa6a38cd.svg"
-              )
-              .attr("alt", "Made in Webflow");
-          return T.append(b, S), T[0];
+            // Modified: Return null instead of creating the badge element
+            return null;
         }
+    
         function E() {
-          var T = i.children(o),
-            b = T.length && T.get(0) === f,
-            S = Os.env("editor");
-          if (b) {
-            S && T.remove();
-            return;
-          }
-          T.length && T.remove(), S || i.append(f);
+            var T = i.children(o),
+                b = T.length && T.get(0) === f,
+                S = Os.env("editor");
+            if (b) {
+                S && T.remove();
+                return;
+            }
+            T.length && T.remove(), S || i.append(f);
         }
+    
         return t;
       })
     );
