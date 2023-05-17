@@ -2484,9 +2484,11 @@ html {
   }
 
   :root {
-    color-scheme: light only;
+    color-scheme: light;
+    background-color: #f0f0f0;
   }
 
-  @media (prefers-color-scheme: dark) {
-    /* Add CSS rules for dark mode */
+  @media (prefers-color-scheme: light) {
+
   }
+
