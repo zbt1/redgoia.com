@@ -13375,6 +13375,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .image-39_gr {
+    object-fit: fill;
     right: 49px;
   }
 
@@ -13554,7 +13555,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .image-39_gr {
-    object-fit: scale-down;
+    object-fit: fill;
     right: 49px;
   }
 
@@ -13961,7 +13962,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .image-39_gr {
-    object-fit: scale-down;
+    object-fit: fill;
     position: relative;
   }
 
