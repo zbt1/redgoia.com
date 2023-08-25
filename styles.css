@@ -8375,6 +8375,14 @@ textarea.w-input, textarea.w-select {
   display: flex;
 }
 
+.button-35:hover {
+  background-color: #710738;
+}
+
+.button-35:active {
+  background-color: #5e0436;
+}
+
 .button-button-large-21 {
   color: #fff;
   text-align: center;
