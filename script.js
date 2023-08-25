@@ -11481,6 +11481,117 @@ Webflow.require("ix2").init({
       },
       createdOn: 1691887538273,
     },
+    "e-19": {
+      id: "e-19",
+      name: "",
+      animationType: "custom",
+      eventTypeId: "PAGE_SCROLL",
+      action: {
+        id: "",
+        actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+        config: { actionListId: "a-11", affectedElements: {}, duration: 0 },
+      },
+      mediaQueries: ["main", "medium", "small", "tiny"],
+      target: {
+        id: "64d915fd18778b93a9f99219",
+        appliesTo: "PAGE",
+        styleBlockIds: [],
+      },
+      targets: [
+        {
+          id: "64d915fd18778b93a9f99219",
+          appliesTo: "PAGE",
+          styleBlockIds: [],
+        },
+      ],
+      config: [
+        {
+          continuousParameterGroupId: "a-11-p",
+          smoothing: 50,
+          startsEntering: true,
+          addStartOffset: false,
+          addOffsetValue: 50,
+          startsExiting: false,
+          addEndOffset: false,
+          endOffsetValue: 50,
+        },
+      ],
+      createdOn: 1692490685229,
+    },
+    "e-20": {
+      id: "e-20",
+      name: "",
+      animationType: "custom",
+      eventTypeId: "PAGE_SCROLL",
+      action: {
+        id: "",
+        actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+        config: { actionListId: "a-11", affectedElements: {}, duration: 0 },
+      },
+      mediaQueries: ["main", "medium", "small", "tiny"],
+      target: {
+        id: "64d976fc477042ee34aefdb8",
+        appliesTo: "PAGE",
+        styleBlockIds: [],
+      },
+      targets: [
+        {
+          id: "64d976fc477042ee34aefdb8",
+          appliesTo: "PAGE",
+          styleBlockIds: [],
+        },
+      ],
+      config: [
+        {
+          continuousParameterGroupId: "a-11-p",
+          smoothing: 50,
+          startsEntering: true,
+          addStartOffset: false,
+          addOffsetValue: 50,
+          startsExiting: false,
+          addEndOffset: false,
+          endOffsetValue: 50,
+        },
+      ],
+      createdOn: 1692916952855,
+    },
+    "e-21": {
+      id: "e-21",
+      name: "",
+      animationType: "custom",
+      eventTypeId: "PAGE_SCROLL",
+      action: {
+        id: "",
+        actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+        config: { actionListId: "a-11", affectedElements: {}, duration: 0 },
+      },
+      mediaQueries: ["main", "medium", "small", "tiny"],
+      target: {
+        id: "64d98019bec48c7910790d64",
+        appliesTo: "PAGE",
+        styleBlockIds: [],
+      },
+      targets: [
+        {
+          id: "64d98019bec48c7910790d64",
+          appliesTo: "PAGE",
+          styleBlockIds: [],
+        },
+      ],
+      config: [
+        {
+          continuousParameterGroupId: "a-11-p",
+          smoothing: 50,
+          startsEntering: true,
+          addStartOffset: false,
+          addOffsetValue: 50,
+          startsExiting: false,
+          addEndOffset: false,
+          endOffsetValue: 50,
+        },
+      ],
+      createdOn: 1692917051264,
+    },
   },
   actionLists: {
     "a-3": {
@@ -12117,6 +12228,58 @@ Webflow.require("ix2").init({
       ],
       useFirstGroupAsInitialState: false,
       createdOn: 1691888082545,
+    },
+    "a-11": {
+      id: "a-11",
+      title: "Scroll progress",
+      continuousParameterGroups: [
+        {
+          id: "a-11-p",
+          type: "SCROLL_PROGRESS",
+          parameterLabel: "Scroll",
+          continuousActionGroups: [
+            {
+              keyframe: 0,
+              actionItems: [
+                {
+                  id: "a-11-n",
+                  actionTypeId: "STYLE_SIZE",
+                  config: {
+                    delay: 0,
+                    easing: "",
+                    duration: 500,
+                    locked: false,
+                    target: { id: "1cde0f86-1cb1-d416-5a61-2a7a6d58381d" },
+                    widthValue: 0,
+                    widthUnit: "%",
+                    heightUnit: "PX",
+                  },
+                },
+              ],
+            },
+            {
+              keyframe: 100,
+              actionItems: [
+                {
+                  id: "a-11-n-2",
+                  actionTypeId: "STYLE_SIZE",
+                  config: {
+                    delay: 0,
+                    easing: "",
+                    duration: 500,
+                    locked: false,
+                    target: { id: "1cde0f86-1cb1-d416-5a61-2a7a6d58381d" },
+                    widthValue: 100,
+                    widthUnit: "%",
+                    heightUnit: "PX",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      createdOn: 1692628991079,
     },
   },
   site: {
