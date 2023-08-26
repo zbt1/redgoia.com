@@ -10990,6 +10990,14 @@ textarea.w-input, textarea.w-select {
   line-height: 140%;
 }
 
+.submit-button:hover {
+  background-color: #710738;
+}
+
+.submit-button:active {
+  background-color: #5e0436;
+}
+
 .field-form {
   min-height: 48px;
   background-color: #f3f3f3;
@@ -12869,6 +12877,81 @@ textarea.w-input, textarea.w-select {
   border-bottom: 1px solid #bcbcbc;
   position: fixed;
   transform: translate(0);
+}
+
+.go-to-top {
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #292929;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 0%;
+  left: auto;
+  right: 0%;
+}
+
+.vectors-wrapper-144 {
+  width: 21.3333px;
+  height: 21.3333px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.go-to-top-2 {
+  z-index: 1;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #292929;
+  flex-wrap: nowrap;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-right: 32px;
+  padding: 12px 20px;
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 0%;
+  left: auto;
+  right: 0%;
+}
+
+.vectors-wrapper-145 {
+  width: 21.3333px;
+  height: 21.3333px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.top-half, .bottom-half {
+  width: 100%;
+  height: 50%;
+}
+
+.back-top-trigger {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.trigger-back-top {
+  width: 100%;
+  height: 40px;
+  position: absolute;
 }
 
 @media screen and (min-width: 1280px) {
