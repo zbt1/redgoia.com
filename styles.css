@@ -14188,8 +14188,8 @@ textarea.w-input, textarea.w-select {
     width: 100%;
     max-height: none;
     max-width: none;
-    min-height: 18vh;
-    min-width: 18vh;
+    min-height: 40vh;
+    min-width: 40vh;
     object-fit: scale-down;
     flex-flow: column wrap;
     align-content: center;
