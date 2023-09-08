@@ -9,6 +9,155 @@
 (() => {
   var u = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
   var Fi = u(() => {
+    (function () {
+      if (typeof window > "u") return;
+      let e = window.navigator.userAgent.match(/Edge\/(\d{2})\./),
+        t = e ? parseInt(e[1], 10) >= 16 : !1;
+      if ("objectFit" in document.documentElement.style && !t) {
+        window.objectFitPolyfill = function () {
+          return !1;
+        };
+        return;
+      }
+      let n = function (s) {
+          let c = window.getComputedStyle(s, null),
+            f = c.getPropertyValue("position"),
+            v = c.getPropertyValue("overflow"),
+            d = c.getPropertyValue("display");
+          (!f || f === "static") && (s.style.position = "relative"),
+            v !== "hidden" && (s.style.overflow = "hidden"),
+            (!d || d === "inline") && (s.style.display = "block"),
+            s.clientHeight === 0 && (s.style.height = "100%"),
+            s.className.indexOf("object-fit-polyfill") === -1 &&
+              (s.className += " object-fit-polyfill");
+        },
+        o = function (s) {
+          let c = window.getComputedStyle(s, null),
+            f = {
+              "max-width": "none",
+              "max-height": "none",
+              "min-width": "0px",
+              "min-height": "0px",
+              top: "auto",
+              right: "auto",
+              bottom: "auto",
+              left: "auto",
+              "margin-top": "0px",
+              "margin-right": "0px",
+              "margin-bottom": "0px",
+              "margin-left": "0px",
+            };
+          for (let v in f)
+            c.getPropertyValue(v) !== f[v] && (s.style[v] = f[v]);
+        },
+        i = function (s) {
+          let c = s.parentNode;
+          n(c),
+            o(s),
+            (s.style.position = "absolute"),
+            (s.style.height = "100%"),
+            (s.style.width = "auto"),
+            s.clientWidth > c.clientWidth
+              ? ((s.style.top = "0"),
+                (s.style.marginTop = "0"),
+                (s.style.left = "50%"),
+                (s.style.marginLeft = s.clientWidth / -2 + "px"))
+              : ((s.style.width = "100%"),
+                (s.style.height = "auto"),
+                (s.style.left = "0"),
+                (s.style.marginLeft = "0"),
+                (s.style.top = "50%"),
+                (s.style.marginTop = s.clientHeight / -2 + "px"));
+        },
+        a = function (s) {
+          if (typeof s > "u" || s instanceof Event)
+            s = document.querySelectorAll("[data-object-fit]");
+          else if (s && s.nodeName) s = [s];
+          else if (typeof s == "object" && s.length && s[0].nodeName) s = s;
+          else return !1;
+          for (let c = 0; c < s.length; c++) {
+            if (!s[c].nodeName) continue;
+            let f = s[c].nodeName.toLowerCase();
+            if (f === "img") {
+              if (t) continue;
+              s[c].complete
+                ? i(s[c])
+                : s[c].addEventListener("load", function () {
+                    i(this);
+                  });
+            } else
+              f === "video"
+                ? s[c].readyState > 0
+                  ? i(s[c])
+                  : s[c].addEventListener("loadedmetadata", function () {
+                      i(this);
+                    })
+                : i(s[c]);
+          }
+          return !0;
+        };
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", a)
+        : a(),
+        window.addEventListener("resize", a),
+        (window.objectFitPolyfill = a);
+    })();
+  });
+  var Os = u(() => {
+    (function () {
+      if (typeof window > "u") return;
+      function e(n) {
+        Webflow.env("design") ||
+          ($("video").each(function () {
+            n && $(this).prop("autoplay") ? this.play() : this.pause();
+          }),
+          $(".w-background-video--control").each(function () {
+            n ? r($(this)) : t($(this));
+          }));
+      }
+      function t(n) {
+        n.find("> span").each(function (o) {
+          $(this).prop("hidden", () => o === 0);
+        });
+      }
+      function r(n) {
+        n.find("> span").each(function (o) {
+          $(this).prop("hidden", () => o === 1);
+        });
+      }
+      $(document).ready(() => {
+        let n = window.matchMedia("(prefers-reduced-motion: reduce)");
+        n.addEventListener("change", (o) => {
+          e(!o.matches);
+        }),
+          n.matches && e(!1),
+          $("video:not([autoplay])").each(function () {
+            $(this)
+              .parent()
+              .find(".w-background-video--control")
+              .each(function () {
+                t($(this));
+              });
+          }),
+          $(document).on("click", ".w-background-video--control", function (o) {
+            if (Webflow.env("design")) return;
+            let i = $(o.currentTarget),
+              a = $(`video#${i.attr("aria-controls")}`).get(0);
+            if (a)
+              if (a.paused) {
+                let s = a.play();
+                r(i),
+                  s &&
+                    typeof s.catch == "function" &&
+                    s.catch(() => {
+                      t(i);
+                    });
+              } else a.pause(), t(i);
+          });
+      });
+    })();
+  });
+  var Gi = u(() => {
     window.tram = (function (e) {
       function t(l, g) {
         var y = new V.Bare();
