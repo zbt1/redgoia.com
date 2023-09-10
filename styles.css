@@ -14198,4 +14198,9 @@ textarea.w-input, textarea.w-select {
     display: block;
     position: relative;
   }
+
+  .text-group-3-hero {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
