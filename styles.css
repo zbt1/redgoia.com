@@ -36,19 +36,6 @@ a:active, a:hover
   outline: 0;
 }
 
-a:link { 
-  text-decoration: underline; 
-} 
-a:visited { 
-  text-decoration: none; 
-} 
-a:hover { 
-  text-decoration: none; 
-} 
-a:active { 
-  text-decoration: none; 
-}
-
 
 abbr[title] {
   border-bottom: 1px dotted;
@@ -3215,6 +3202,13 @@ textarea.w-input, textarea.w-select {
   line-height: 140%;
   text-decoration: underline !important;
 }
+
+
+a { 
+  text-decoration: none; 
+} 
+
+
 
 .logo-7 {
   grid-column-gap: 25px;
