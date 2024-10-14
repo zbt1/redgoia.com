@@ -308,8 +308,8 @@ pre.w-code-block code {
 }
 
 .w-webflow-badge, .w-webflow-badge * {
-  z-index: -99;
-  visibility: hidden;
+  z-index: -99 !important;
+  visibility: hidden !important;
   box-sizing: border-box;
   width: 0;
   min-width: 0;
@@ -352,9 +352,6 @@ pre.w-code-block code {
   transition: none;
   display: none;
   position: static;
-			
-			   
-			 
   inset: auto;
   overflow: hidden;
   transform: none;
@@ -371,20 +368,15 @@ pre.w-code-block code {
   background-color: #0000 !important;
   border-radius: 0px !important;
   width: 0 !important;
-  height: 0 !important;
-									
-								
+  height: 0 !important;	
   margin: 0 !important;
-  padding: 6px !important;
-  font-size: 12px !important;
-  line-height: 14px !important;
+  padding: 0px !important;
+  font-size: 0px !important;
+  line-height: 0px !important;
   text-decoration: none !important;
   display: none !important;
   position: fixed !important;
-  inset: auto 12px 12px auto !important;
-						  
-						
-						 
+  inset: auto 12px 12px auto !important; 
   overflow: visible !important;
   transform: none !important;
 }
