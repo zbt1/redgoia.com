@@ -3200,7 +3200,7 @@ textarea.w-input, textarea.w-select {
   font-size: 16px;
   font-weight: 300;
   line-height: 140%;
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 
