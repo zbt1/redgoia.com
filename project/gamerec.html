@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <!-- Open Graph Tags starts here -->
-    <meta name="description" content="Explore how small, data-driven tweaks to product design can vastly improve key performance indicators (KPIs). View this case study for insights into my process.">
+    <meta name="description" content="Explore how small, tweaks to product design can vastly improve key performance indicators (KPIs). View this case study for insights into my process.">
     <meta name="author" content="Nicolas Totma">
     <meta property="og:title" content="GameRec - Data-driven tweaks for improved KPIs">
     <meta property="og:description" content="Discover the impact of making small but significant improvements to a product's design and functionality, leading to measurable success.">
@@ -1715,51 +1715,5 @@
       src="/script.js"
       type="text/javascript"
     ></script>
-    <script>
-      // Wait for the document to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Select the Vimeo player iframe
-        var vimeoPlayer = document.getElementById("video_wrapper"); // Use the correct ID for the video wrapper
-        // Select the Lottie animation
-        var lottieAnimation = document.getElementById("LottieAnimation"); // Updated to use the new ID
-
-        // Check if elements are found
-        if (!vimeoPlayer || !lottieAnimation) {
-          console.error("Vimeo Player or Lottie Animation not found.");
-          return; // Exit if not found
-        }
-
-        // Function to control the visibility based on the Vimeo player's state
-        function toggleLottieVisibility() {
-          // Check if the video is playing
-          var isPlaying = false;
-
-          // Post a message to the Vimeo iframe to check playback status
-          var playerUrl = vimeoPlayer.contentWindow.location.href;
-
-          if (playerUrl.includes("vimeo.com")) {
-            // Use the Vimeo Player API to check if the video is playing
-            var player = new Vimeo.Player(vimeoPlayer);
-            player.getPaused().then(function (paused) {
-              isPlaying = !paused; // If paused is false, the video is playing
-              if (isPlaying) {
-                lottieAnimation.style.display = "none"; // Hide Lottie when playing
-              } else {
-                lottieAnimation.style.display = "block"; // Show Lottie when not playing
-              }
-            });
-          }
-        }
-
-        // Check for play event
-        vimeoPlayer.addEventListener("load", function () {
-          // Call the function to check visibility when the video loads
-          toggleLottieVisibility();
-        });
-
-        // Optionally set an interval to continuously check if the video is playing
-        setInterval(toggleLottieVisibility, 1000); // Check every second
-      });
-    </script>
   </body>
 </html>
