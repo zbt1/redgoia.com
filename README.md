@@ -1,2 +1,2 @@
 # redgoia.com
-Development portfolio
+UX / UI designer portfolio.
