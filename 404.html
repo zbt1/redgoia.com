@@ -96,20 +96,21 @@
         >
       </div>
       <div class="div-block-32">
-        <div
-          class="rive"
-          data-rive-url="/assets/67046f7b7eb5795fb8db2313_red_goia_spin_fix_w.riv"
-          data-rive-state-machine="State Machine easy transition"
-          data-rive-artboard="Artboard"
-          data-rive-autoplay="true"
-          data-rive-is-touch-scroll-enabled="false"
-          data-rive-automatically-handle-events="false"
-          data-rive-fit="contain"
-          data-rive-alignment="center"
-          data-animation-type="rive"
-        >
-          <canvas style="height: 100%; width: 100%"></canvas>
-        </div>
+                <div class="rive-wrapper">
+                  <canvas id="riveCanvas" style="width: 100%; height: 100%;"></canvas>
+                </div>
+
+                <script>
+                  new Rive({
+                    src: "/assets/67046f7b7eb5795fb8db2313_red_goia_spin_fix_w.riv",
+                    canvas: document.getElementById("riveCanvas"),
+                    artboard: "Artboard",
+                    stateMachines: ["State Machine easy transition"],
+                    autoplay: true,
+                    fit: "contain",
+                    alignment: "center"
+                  });
+                </script>
       </div>
     </div>
     <script
