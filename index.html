@@ -602,100 +602,91 @@
     ></script>
     
     <!-- FAST VIMEO LOADING SCRIPT -->
-    <script>
-    (function() {
-        'use strict';
-        
-        // Load video function
-        function loadVideo(container) {
-            const iframe = container.querySelector('.vimeo-iframe');
-            const placeholder = container.querySelector('.video-placeholder');
+      <script>
+        (function() {
+            'use strict';
             
-            if (!iframe || !iframe.dataset.src || iframe.src) return;
-            
-            // Show loading state
-            if (placeholder) {
-                placeholder.innerHTML = '<div><div class="loading-spinner"></div>Loading...</div>';
-            }
-            
-            // Set up iframe load event
-            iframe.onload = function() {
-                iframe.style.display = 'block';
-                iframe.classList.add('loaded');
+            // Load video function
+            function loadVideo(container) {
+                const iframe = container.querySelector('.vimeo-iframe');
+                const placeholder = container.querySelector('.video-placeholder');
+                
+                if (!iframe || !iframe.dataset.src || iframe.src) return;
+                
+                // Show loading state
                 if (placeholder) {
-                    placeholder.classList.add('hidden');
-                    setTimeout(() => placeholder.remove(), 300);
+                    placeholder.innerHTML = '<div><div class="loading-spinner"></div>Loading...</div>';
                 }
-            };
-            
-            // Load the video
-            iframe.src = iframe.dataset.src;
-        }
-        
-        // Auto-load desktop video after 800ms
-        function initAutoLoad() {
-            setTimeout(() => {
-                const desktopContainer = document.getElementById('video_wrapper');
-                if (desktopContainer) {
-                    loadVideo(desktopContainer);
-                }
-            }, 800);
-        }
-        
-        // Click to load for mobile - Deactivated
-        //function initClickToLoad() {//
-           //document.addEventListener('click', function(e) {//
-                //if (e.target.closest('.video-placeholder')) {//
-                    //const container = e.target.closest('[id^="video_wrapper"]');//
-                    //if (container) {//
-                        //loadVideo(container);//
-                    //}//
-                //}//
-            //});//
-        //}//
-        
-        // Lazy loading with Intersection Observer
-        function initLazyLoading() {
-            if (!('IntersectionObserver' in window)) {
-                initAutoLoad();
-                return;
+                
+                // Set up iframe load event
+                iframe.onload = function() {
+                    iframe.style.display = 'block';
+                    iframe.classList.add('loaded');
+                    if (placeholder) {
+                        placeholder.classList.add('hidden');
+                        setTimeout(() => placeholder.remove(), 300);
+                    }
+                };
+                
+                // Load the video
+                iframe.src = iframe.dataset.src;
             }
             
-            const videoContainers = document.querySelectorAll('[id^="video_wrapper"]');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Load desktop immediately, mobile on click
-                        if (entry.target.id === 'video_wrapper') {
-                            setTimeout(() => loadVideo(entry.target), 500);
-                        }
-                        observer.unobserve(entry.target);
+            // Auto-load desktop video after 800ms
+            function initAutoLoad() {
+                setTimeout(() => {
+                    const desktopContainer = document.getElementById('video_wrapper');
+                    const mobileContainer = document.getElementById('video_wrapper_mobile');
+                    if (desktopContainer) {
+                        loadVideo(desktopContainer);
                     }
-                });
-            }, {
-                rootMargin: '50px',
-                threshold: 0.1
-            });
+                    if (mobileContainer) {
+                        loadVideo(mobileContainer);
+                    }
+                }, 800);
+            }
             
-            videoContainers.forEach(container => {
-                observer.observe(container);
-            });
-        }
-        
-        // Initialize when DOM is ready
-        function init() {
-            initLazyLoading();
-            // initClickToLoad(); // <- Currently deactivated for testing.
-        }
-        
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-    })();
-    </script>
+            // Lazy loading with Intersection Observer
+            function initLazyLoading() {
+                if (!('IntersectionObserver' in window)) {
+                    initAutoLoad();
+                    return;
+                }
+                
+                const videoContainers = document.querySelectorAll('[id^="video_wrapper"]');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Load BOTH desktop AND mobile automatically
+                            setTimeout(() => loadVideo(entry.target), 500);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px',
+                    threshold: 0.1
+                });
+                
+                videoContainers.forEach(container => {
+                    observer.observe(container);
+                });
+            }
+            
+            // Initialize when DOM is ready
+            function init() {
+                initLazyLoading();
+                // Removed initClickToLoad() - no more click-to-load on mobile
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+      </script>
+
     
     <style>
       @media screen and (max-width: 991px) {
