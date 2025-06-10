@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html
-  data-wf-domain="redgoia.webflow.io"
   data-wf-page="64fb91bf1c281c02d0fbaf36"
-  data-wf-site="625ca2c9c42690822bdf3e65"
-  data-wf-status="1"
+  lang="en"
 >
   <head>
     <meta charset="utf-8" />
@@ -25,6 +23,11 @@
     <meta name="twitter:image" content="https://www.redgoia.com/assets/og_image.jpg" />
     <meta property="twitter:url" content="https://www.redgoia.com" />
     <!-- Open Graph Tags ends here -->
+    
+    <!-- VIMEO PRECONNECT FOR FASTER LOADING -->
+    <link rel="preconnect" href="https://player.vimeo.com">
+    <link rel="preconnect" href="https://vimeocdn.com">
+    <link rel="preconnect" href="https://f.vimeocdn.com">
     
     <link
       href="./styles.css"
@@ -77,7 +80,55 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "ohjatygalp");
-  </script>
+    </script>
+    
+    <!-- OPTIMIZED VIDEO LOADING STYLES -->
+    <style>
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(70, 70, 70, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+      }
+      
+      .video-placeholder.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .vimeo-iframe {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .vimeo-iframe.loaded {
+        opacity: 1;
+      }
+      
+      .loading-spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 8px;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body class="body">
     <div class="desktop-main_container_grid">
@@ -92,7 +143,7 @@
                   >
                     <span
                       class="hey-i-m-nico-from-red-goia-i-m-a-ux-ui-designer-22"
-                      >Hi, I’m </span
+                      >Hi, I'm </span
                     ><span
                       class="hey-i-m-nico-from-red-goia-i-m-a-ux-ui-designer-23"
                       >Nicolas</span
@@ -101,7 +152,7 @@
                       >.<br />‍</span
                     ><span
                       class="hey-i-m-nico-from-red-goia-i-m-a-ux-ui-designer-22"
-                      >I’m a </span
+                      >I'm a </span
                     ><span
                       class="hey-i-m-nico-from-red-goia-i-m-a-ux-ui-designer-23"
                       >UX</span
@@ -129,7 +180,7 @@
                 </div>
                 <div class="body-p3-light">
                   I am passionate about design that is beautiful, but also
-                  straight-forward, accessible and inclusive. Let’s build
+                  straight-forward, accessible and inclusive. Let's build
                   something that truly works for your audience!
                 </div>
               </div>
@@ -150,28 +201,45 @@
           </div>
         </div>
         <div class="div-block-20 video">
+          <!-- OPTIMIZED MOBILE VIDEO -->
           <div
             id="video_wrapper_mobile"
             class="video_wrapper_hero_mobile w-embed w-iframe"
           >
+            <div class="video-placeholder" id="mobile-placeholder">
+              <div>
+                <div class="loading-spinner"></div>
+                Tap to play
+              </div>
+            </div>
             <iframe
-              id="video_wrapper"
-              src="https://player.vimeo.com/video/1019034474?&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1"
-              style="width: 100%; height: 100%"
+              class="vimeo-iframe"
+              id="mobile-vimeo"
+              data-src="https://player.vimeo.com/video/1019034474?&autoplay=1&muted=1&loop=1&background=1&quality=360p&speed=1"
+              style="width: 100%; height: 100%; display: none;"
               frameborder="0"
               allow="autoplay; fullscreen"
-              allowfullscreen=""
-            ></iframe>
+              allowfullscreen="">
+            </iframe>
           </div>
+          
+          <!-- OPTIMIZED DESKTOP VIDEO -->
           <div id="video_wrapper" class="video_wrapper_hero w-embed w-iframe">
+            <div class="video-placeholder" id="desktop-placeholder">
+              <div>
+                <div class="loading-spinner"></div>
+                Loading animation...
+              </div>
+            </div>
             <iframe
-              id="video_wrapper"
-              src="https://player.vimeo.com/video/1019034093?&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1"
-              style="width: 100%; height: 100%"
+              class="vimeo-iframe"
+              id="desktop-vimeo"
+              data-src="https://player.vimeo.com/video/1019034093?&autoplay=1&muted=1&loop=1&background=1&quality=720p&speed=1"
+              style="width: 100%; height: 100%; display: none;"
               frameborder="0"
               allow="autoplay; fullscreen"
-              allowfullscreen=""
-            ></iframe>
+              allowfullscreen="">
+            </iframe>
           </div>
         </div>
       </div>
@@ -243,7 +311,7 @@
                 </div>
               </div>
               <div
-                data-w-id="5795122b-8e80-1481-d902-799d4b0ef4c8"
+                data-w-id="5795122b-8e80-1481-d902-799d4b0ef4bb"
                 class="primary-button"
               >
                 View the project
@@ -532,6 +600,103 @@
       src="/js/script.0b9e1633.751d7def8dc11ca6.js"
       type="text/javascript"
     ></script>
+    
+    <!-- FAST VIMEO LOADING SCRIPT -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Load video function
+        function loadVideo(container) {
+            const iframe = container.querySelector('.vimeo-iframe');
+            const placeholder = container.querySelector('.video-placeholder');
+            
+            if (!iframe || !iframe.dataset.src || iframe.src) return;
+            
+            // Show loading state
+            if (placeholder) {
+                placeholder.innerHTML = '<div><div class="loading-spinner"></div>Loading...</div>';
+            }
+            
+            // Set up iframe load event
+            iframe.onload = function() {
+                iframe.style.display = 'block';
+                iframe.classList.add('loaded');
+                if (placeholder) {
+                    placeholder.classList.add('hidden');
+                    setTimeout(() => placeholder.remove(), 300);
+                }
+            };
+            
+            // Load the video
+            iframe.src = iframe.dataset.src;
+        }
+        
+        // Auto-load desktop video after 800ms
+        function initAutoLoad() {
+            setTimeout(() => {
+                const desktopContainer = document.getElementById('video_wrapper');
+                if (desktopContainer) {
+                    loadVideo(desktopContainer);
+                }
+            }, 800);
+        }
+        
+        // Click to load for mobile
+        function initClickToLoad() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.video-placeholder')) {
+                    const container = e.target.closest('[id^="video_wrapper"]');
+                    if (container) {
+                        loadVideo(container);
+                    }
+                }
+            });
+        }
+        
+        // Lazy loading with Intersection Observer
+        function initLazyLoading() {
+            if (!('IntersectionObserver' in window)) {
+                initAutoLoad();
+                return;
+            }
+            
+            const videoContainers = document.querySelectorAll('[id^="video_wrapper"]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Load desktop immediately, mobile on click
+                        if (entry.target.id === 'video_wrapper') {
+                            setTimeout(() => loadVideo(entry.target), 500);
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '50px',
+                threshold: 0.1
+            });
+            
+            videoContainers.forEach(container => {
+                observer.observe(container);
+            });
+        }
+        
+        // Initialize when DOM is ready
+        function init() {
+            initLazyLoading();
+            initClickToLoad();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+    
     <style>
       @media screen and (max-width: 991px) {
         .dropdown-list.w--open {
