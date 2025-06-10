@@ -90,11 +90,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(70, 70, 70, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: #292929;
         font-size: 16px;
         cursor: pointer;
         transition: opacity 0.3s ease;
@@ -118,7 +118,7 @@
       .loading-spinner {
         width: 20px;
         height: 20px;
-        border: 2px solid rgba(255,255,255,0.3);
+        border: 2px solid rgba(102,102,102,0.3);
         border-radius: 50%;
         border-top-color: white;
         animation: spin 1s linear infinite;
@@ -686,7 +686,7 @@
         // Initialize when DOM is ready
         function init() {
             initLazyLoading();
-            initClickToLoad();
+            // initClickToLoad(); // <- Currently deactivated for testing.
         }
         
         if (document.readyState === 'loading') {
