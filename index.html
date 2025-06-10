@@ -209,7 +209,7 @@
             <div class="video-placeholder" id="mobile-placeholder">
               <div>
                 <div class="loading-spinner"></div>
-                Tap to play
+                Loading animation...
               </div>
             </div>
             <iframe
@@ -642,17 +642,17 @@
             }, 800);
         }
         
-        // Click to load for mobile
-        function initClickToLoad() {
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.video-placeholder')) {
-                    const container = e.target.closest('[id^="video_wrapper"]');
-                    if (container) {
-                        loadVideo(container);
-                    }
-                }
-            });
-        }
+        // Click to load for mobile - Deactivated
+        //function initClickToLoad() {//
+           //document.addEventListener('click', function(e) {//
+                //if (e.target.closest('.video-placeholder')) {//
+                    //const container = e.target.closest('[id^="video_wrapper"]');//
+                    //if (container) {//
+                        //loadVideo(container);//
+                    //}//
+                //}//
+            //});//
+        //}//
         
         // Lazy loading with Intersection Observer
         function initLazyLoading() {
